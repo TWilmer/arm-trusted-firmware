@@ -52,15 +52,16 @@ adds a tool "gen_tos_img.py"  to regenerate the tos.img
 
 .. code:: shell
 
-export CROSS_COMPILE=/usr/bin/aarch64-linux-gnu-
-make PLAT=tegra TARGET_SOC=t186 DEBUG=1 all
-plat/nvidia/tegra/soc/t186/gen_tos_img.py build/tegra/t186/debug/bl31.bin tos.img
+    export CROSS_COMPILE=/usr/bin/aarch64-linux-gnu-
+    make PLAT=tegra TARGET_SOC=t186 DEBUG=1 all
+    plat/nvidia/tegra/soc/t186/gen_tos_img.py build/tegra/t186/debug/bl31.bin tos.img
 
 The above commands recreaes the tos.img. It can be copied to
 bootloader/tos.img and then flashed with 
 
 .. code:: shell
- ./flash.sh -k secure-os  jetson-tx2 mmcblk0p1
+
+    ./flash.sh -k secure-os  jetson-tx2 mmcblk0p1
 
 
 
