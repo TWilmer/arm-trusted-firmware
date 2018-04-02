@@ -40,6 +40,30 @@ Denver also features new low latency power-state transitions, in addition
 to extensive power-gating and dynamic voltage and clock scaling based on
 workloads.
 
+
+-  .. rubric:: T186
+      :name: t186
+
+t186 is also known as NVIDIA Parker and is available in the Jetson TX2.
+The SoC contains 4 A57 Cores and 2 Denver2 Cores. These cores are 
+fully Armv8-A architecture compatible.
+The Jetson TX2 JetPack contains a prebuilt tos.img. This repository
+adds a tool "gen_tos_img.py"  to regenerate the tos.img
+
+.. code:: shell
+
+export CROSS_COMPILE=/usr/bin/aarch64-linux-gnu-
+make PLAT=tegra TARGET_SOC=t186 DEBUG=1 all
+plat/nvidia/tegra/soc/t186/gen_tos_img.py build/tegra/t186/debug/bl31.bin tos.img
+
+The above commands recreaes the tos.img. It can be copied to
+bootloader/tos.img and then flashed with 
+
+.. code:: shell
+ ./flash.sh -k secure-os  jetson-tx2 mmcblk0p1
+
+
+
 Directory structure
 ===================
 
